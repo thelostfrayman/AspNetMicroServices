@@ -27,11 +27,14 @@ namespace Catalog.API.Repositories
 
         public async Task<Product> GetProduct(string id)
         {
+            FilterDefinition<Product> filter = Builders<Product>.Filter.Eq(p => p.Id, id);
+
             return await _context
                 .Products
-                .Find(p => p.Id == id)
+                .Find(filter)
                 .FirstOrDefaultAsync();
         }
+
 
         public async Task<IEnumerable<Product>> GetProductByName(string name)
         {
@@ -51,7 +54,7 @@ namespace Catalog.API.Repositories
                 .ToListAsync();
         }
 
-        public async Task CreateProcuduct(Product product)
+        public async Task CreateProduct(Product product)
         {
             await _context.Products.InsertOneAsync(product);
         }

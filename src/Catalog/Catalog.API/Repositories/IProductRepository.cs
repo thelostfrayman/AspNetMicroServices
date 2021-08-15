@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Catalog.API.Repositories
 {
-    interface IProductRepository
+    public interface IProductRepository
     {
         Task<IEnumerable<Product>> GetProducts();
 
@@ -16,7 +16,7 @@ namespace Catalog.API.Repositories
 
         Task<IEnumerable<Product>> GetProductByCategory(string CategoryName);
 
-        Task CreateProcuduct(Product product);
+        Task CreateProduct(Product product);
         Task<bool> UpdateProduct(Product product);
         Task<bool> DeleteProduct(string id);
 
