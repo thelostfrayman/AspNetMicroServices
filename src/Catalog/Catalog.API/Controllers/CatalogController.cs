@@ -12,11 +12,11 @@ namespace Catalog.API.Controllers
 {
     [ApiController]
     [Route("api/v1/{controller}")]
-    public class CatalogControler:ControllerBase
+    public class CatalogController:ControllerBase
     {
         private readonly IProductRepository _repository;
-        private readonly ILogger<CatalogControler> _logger;
-        public CatalogControler(IProductRepository repository,ILogger<CatalogControler> logger)
+        private readonly ILogger<CatalogController> _logger;
+        public CatalogController(IProductRepository repository,ILogger<CatalogController> logger)
         {
             _repository = repository ?? throw new ArgumentNullException(nameof(repository));
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
